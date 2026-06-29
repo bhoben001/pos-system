@@ -14,12 +14,12 @@ import java.util.Collections;
 
 
 @Service
-public class CustomUserImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     private UserRepository userRepository;
 
 //    constructor injection
-    public CustomUserImpl(UserRepository userRepository) {
+    public UserDetailsServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
