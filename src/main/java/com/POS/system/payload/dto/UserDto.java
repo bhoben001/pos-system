@@ -13,7 +13,6 @@ public class UserDto {
     private String email;
     private String phone;
 
-    @JsonIgnore
     private String password;
 
     private UserRole role;

@@ -28,6 +28,9 @@ public class User {
     @Email(message = "Email should be valid")
     private String email;
 
+    @ManyToOne
+    private Store store;
+
     @Column(nullable = false)
     private String phone;
 

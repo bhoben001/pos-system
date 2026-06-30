@@ -1,5 +1,6 @@
 package com.POS.system.config;
 
+import com.POS.system.config.jwt.JwtValidator;
 import jakarta.servlet.http.HttpServletRequest;
 import org.jspecify.annotations.Nullable;
 import org.springframework.context.annotation.Bean;

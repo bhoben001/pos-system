@@ -3,7 +3,7 @@ package com.POS.system.service.impl;
 import com.POS.system.Domain.UserRole;
 import com.POS.system.Mapper.UserMapper;
 import com.POS.system.Model.User;
-import com.POS.system.config.JwtProvider;
+import com.POS.system.config.jwt.JwtProvider;
 import com.POS.system.exception.UserException;
 import com.POS.system.payload.dto.UserDto;
 import com.POS.system.payload.response.AuthResponse;
