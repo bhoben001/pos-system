@@ -1,6 +1,7 @@
 package com.POS.system.Model;
 
 import com.POS.system.Domain.UserRole;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@JsonPropertyOrder({"id","fullName","email","phone","role","createdAt","updatedAt","lastLogin"})
 public class User {
 
     @Id

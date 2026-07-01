@@ -1,12 +1,14 @@
 package com.POS.system.payload.dto;
 
 import com.POS.system.Domain.UserRole;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
+@JsonPropertyOrder({"id","fullName","email","phone","role","createdAt","updatedAt","lastLogin"})
+
 public class UserDto {
     private Long id;
     private String fullName;
