@@ -1,5 +1,6 @@
 package com.POS.system.service;
 
+import com.POS.system.Domain.StoreStatus;
 import com.POS.system.Model.Store;
 import com.POS.system.Model.User;
 import com.POS.system.exception.UserException;
@@ -20,4 +21,6 @@ public interface StoreService {
     void deleteStore(Long id);
 
     StoreDto getStoreByEmployee() throws UserException;
+
+    StoreDto moderateStore(Long id, StoreStatus storeStatus) throws UserException;
 }

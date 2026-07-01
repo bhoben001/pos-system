@@ -1,5 +1,6 @@
 package com.POS.system.service.impl;
 
+import com.POS.system.Domain.StoreStatus;
 import com.POS.system.Mapper.StoreMapper;
 import com.POS.system.Model.Store;
 import com.POS.system.Model.StoreContact;
@@ -90,5 +91,13 @@ public class StoreServiceImpl implements StoreService {
         User CurrentUser=userService.getCurrentUser();
         if(CurrentUser==null) throw new UserException("you don't have permission to access this store");
         return StoreMapper.toDto(CurrentUser.getStore());
+    }
+
+    @Override
+    public StoreDto moderateStore(Long id, StoreStatus storeStatus) throws UserException {
+        Store store=storeRepository.findById(id).orElseThrow(()-> new UserException("store not found"));
+        store.setStatus(storeStatus);
+        Store savedStore = storeRepository.save(store);
+        return StoreMapper.toDto(savedStore);
     }
 }

@@ -13,7 +13,7 @@ public class StoreDto {
 
     private Long id;
 
-    private Long brand;
+    private String brand;
 
     private UserDto storeAdmin;
 

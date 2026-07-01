@@ -1,5 +1,6 @@
 package com.POS.system.controller;
 
+import com.POS.system.Domain.StoreStatus;
 import com.POS.system.Mapper.StoreMapper;
 import com.POS.system.Model.User;
 import com.POS.system.exception.UserException;
@@ -57,11 +58,19 @@ public class StoreController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> updateStore(@PathVariable Long id   ) throws Exception {
+    public ResponseEntity<ApiResponse> deleteStore(@PathVariable Long id   ) throws Exception {
         storeService.deleteStore(id);
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setMessage("store deleted successfully");
         return ResponseEntity.ok(apiResponse);
     }
+
+    @PutMapping("/{id}/moderate")
+    public ResponseEntity<StoreDto> moderateStore(@PathVariable Long id,
+                                                @RequestParam StoreStatus status) throws Exception {
+        return ResponseEntity.ok(storeService.moderateStore(id,status));
+    }
+
+
 
 }

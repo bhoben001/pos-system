@@ -7,7 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -18,7 +18,7 @@ public class Store {
     private Long id;
 
     @Column(nullable = false)
-    private Long brand;
+    private String brand;
 
     @OneToOne
     private User storeAdmin;

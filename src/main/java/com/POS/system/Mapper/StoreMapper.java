@@ -4,6 +4,8 @@ import com.POS.system.Model.Store;
 import com.POS.system.Model.User;
 import com.POS.system.payload.dto.StoreDto;
 
+import java.time.LocalDateTime;
+
 public class StoreMapper {
     public static StoreDto toDto(Store store) {
         StoreDto storeDto = new StoreDto();
@@ -27,8 +29,8 @@ public class StoreMapper {
         store.setStoreAdmin( storeAdmin);
         store.setStoreType(storeDto.getStoreType());
         store.setContact(storeDto.getContact());
-        store.setCreatedAt(storeDto.getCreatedAt());
-        store.setUpdatedAt(storeDto.getUpdatedAt());
+        store.setCreatedAt(LocalDateTime.now());
+        store.setUpdatedAt(LocalDateTime.now());
         store.setStatus(storeDto.getStatus());
         return store;
     }
