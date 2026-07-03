@@ -17,7 +17,7 @@ public class StoreContact {
 
     private String phone;
 
-    @Email(message = "emain need ti be valid")
+    @Email(message = "email need to be valid")
     private String email;
 
 

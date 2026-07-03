@@ -1,5 +1,6 @@
 package com.POS.system.Mapper;
 
+import com.POS.system.Domain.StoreStatus;
 import com.POS.system.Model.Store;
 import com.POS.system.Model.User;
 import com.POS.system.payload.dto.StoreDto;
@@ -24,14 +25,13 @@ public class StoreMapper {
 
     public static Store toEntity(StoreDto storeDto, User storeAdmin) {
         Store store = new Store();
+
         store.setBrand(storeDto.getBrand());
         store.setDescription(storeDto.getDescription());
         store.setStoreAdmin( storeAdmin);
         store.setStoreType(storeDto.getStoreType());
         store.setContact(storeDto.getContact());
-        store.setCreatedAt(LocalDateTime.now());
-        store.setUpdatedAt(LocalDateTime.now());
-        store.setStatus(storeDto.getStatus());
+        if(storeDto.getStatus()!=null)store.setStatus(storeDto.getStatus());
         return store;
     }
 }

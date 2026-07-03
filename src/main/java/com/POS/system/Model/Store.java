@@ -1,6 +1,7 @@
 package com.POS.system.Model;
 
 import com.POS.system.Domain.StoreStatus;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +13,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EqualsAndHashCode
+
+@JsonPropertyOrder({"id","brand","storeAdmin","createdAt","updatedAt","description","storeType","status","contact"})
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +26,9 @@ public class Store {
     @OneToOne
     private User storeAdmin;
 
+    @Column(updatable = false)
     private LocalDateTime createdAt;
+
     private LocalDateTime updatedAt;
 
     private String description;
@@ -38,6 +43,7 @@ public class Store {
     @PrePersist
     protected void onCreate(){
         createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
         status = StoreStatus.PENDING;
     }
 

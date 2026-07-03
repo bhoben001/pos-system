@@ -29,23 +29,27 @@ public class StoreController {
             return  ResponseEntity.ok(storeService.createStore(storeDto,user));
     }
 
+//    hasRole
     @GetMapping("/{id}")
     public ResponseEntity<StoreDto> getStoreById(@PathVariable Long id) throws UserException {
         return  ResponseEntity.ok(storeService.getStoreById(id));
     }
 
+//    hasRole
     @GetMapping()
     public ResponseEntity<List<StoreDto>> getAllStore(@RequestHeader("Authorization")String jwt) throws UserException {
         return  ResponseEntity.ok(storeService.getAllStores());
     }
 
 
+//    hasRole
     @GetMapping("/admin")
     public ResponseEntity<StoreDto> getStoreByAdmin(@RequestHeader("Authorization")String jwt) throws UserException {
         return  ResponseEntity.ok(StoreMapper.toDto(storeService.getStoreByAdmin()));
     }
 
 
+//    hasRole
     @GetMapping("/employee")
     public ResponseEntity<StoreDto> getStoreByEmployee(@RequestHeader("Authorization") String jwt) throws UserException {
         return  ResponseEntity.ok(storeService.getStoreByEmployee());
@@ -57,6 +61,7 @@ public class StoreController {
         return ResponseEntity.ok(storeService.updateStore(id,storeDto));
     }
 
+//    hasRole
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteStore(@PathVariable Long id   ) throws Exception {
         storeService.deleteStore(id);
@@ -65,12 +70,11 @@ public class StoreController {
         return ResponseEntity.ok(apiResponse);
     }
 
+
+//    updating status of store
     @PutMapping("/{id}/moderate")
     public ResponseEntity<StoreDto> moderateStore(@PathVariable Long id,
                                                 @RequestParam StoreStatus status) throws Exception {
         return ResponseEntity.ok(storeService.moderateStore(id,status));
     }
-
-
-
 }
