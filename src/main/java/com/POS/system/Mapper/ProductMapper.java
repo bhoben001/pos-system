@@ -36,6 +36,7 @@ public class ProductMapper {
         product.setSellingPrice(productDto.getSellingPrice());
         product.setBrand(productDto.getBrand());
         product.setCategory(category);
+        product.setStore(store);
 
 
         return product;

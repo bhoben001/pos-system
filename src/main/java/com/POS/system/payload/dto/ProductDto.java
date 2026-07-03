@@ -2,13 +2,15 @@ package com.POS.system.payload.dto;
 
 import com.POS.system.Model.Category;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class ProductDto {
 
-    private Long id;
+    private Long id;  // id is needed to convert product to productDto
 
     private String name;
 
@@ -16,8 +18,9 @@ public class ProductDto {
 
     private String sku;
 
-    private double mrp;
-    private double sellingPrice;
+    private Double mrp;
+    private Double sellingPrice;
+
     private String brand;
     private String image;
 

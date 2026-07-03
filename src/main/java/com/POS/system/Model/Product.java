@@ -26,8 +26,8 @@ public class Product {
     @Column(nullable = false,unique = true)
     private String sku;
 
-    private double mrp;
-    private double sellingPrice;
+    private Double mrp;
+    private Double sellingPrice;
     private String brand;
     private String image;
 

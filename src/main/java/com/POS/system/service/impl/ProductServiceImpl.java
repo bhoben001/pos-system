@@ -46,13 +46,14 @@ public class ProductServiceImpl implements ProductService {
 
 
         Product product = productRepository.findById(id).orElseThrow(()->new Exception("product not found"));
-        product.setName(productDto.getName());
-        product.setDescription(productDto.getDescription());
-        product.setSku(productDto.getSku());
-        product.setImage(productDto.getImage());
-        product.setMrp(productDto.getMrp());
-        product.setSellingPrice(productDto.getSellingPrice());
-        product.setBrand(productDto.getBrand());
+        if(productDto.getName()!=null) product.setName(productDto.getName());
+        if(productDto.getDescription()!=null) product.setDescription(productDto.getDescription());
+        if(productDto.getSku()!=null) product.setSku(productDto.getSku());
+        if(productDto.getImage() !=null) product.setImage(productDto.getImage());
+        if(productDto.getMrp()!=null) product.setMrp(productDto.getMrp());
+        if(productDto.getSellingPrice()!=null) product.setSellingPrice(productDto.getSellingPrice());
+        if(productDto.getBrand()!=null) product.setBrand(productDto.getBrand());
+
         product.setUpdatedAt(LocalDateTime.now());
 
         Product savedProduct = productRepository.save(product);
@@ -78,8 +79,4 @@ public class ProductServiceImpl implements ProductService {
         return products.stream().map(ProductMapper::toDto).collect(Collectors.toList());
     }
 
-    @Override
-    public List<ProductDto> getProductByCategory(Long id, User user) {
-        return List.of();
-    }
 }
