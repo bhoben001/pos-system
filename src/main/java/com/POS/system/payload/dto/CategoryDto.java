@@ -11,11 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDto {
-    private Long id;
+    private Long id;  // hame id -> category to category-dto  map karne ke liye chahiye otherwise we don't need it
 
     private String categoryName;
-
-//    private Store store;
 
     private Long storeId;
 }
