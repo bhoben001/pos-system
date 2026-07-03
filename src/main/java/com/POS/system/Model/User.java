@@ -47,6 +47,7 @@ public class User {
 
     private LocalDateTime updatedAt;
 
-    @Column(updatable = false)
     private LocalDateTime lastLogin;
+
+
 }

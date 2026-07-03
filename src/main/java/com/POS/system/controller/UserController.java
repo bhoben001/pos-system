@@ -21,6 +21,7 @@ public class UserController {
         return ResponseEntity.ok(UserMapper.toDto(user));
     }
 
+    //    HAS ROLE OR AUTHORISATION CHECK NEED TO BE DONE
     @GetMapping("/{id}")
     private ResponseEntity<UserDto> getUserById(@RequestHeader("Authorization") String token,
                                                 @PathVariable Long id) throws UserException {
