@@ -1,0 +1,24 @@
+package com.POS.system.payload.dto;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Data
+@Builder
+public class InventoryDto {
+    private Long id;
+
+    private BranchDto branch;
+
+    private Long branchId;
+
+    private Long productId;
+
+    private ProductDto product;
+
+    private Integer quantity;
+
+    private LocalDateTime lastUpdate;
+}
