@@ -1,6 +1,7 @@
 package com.POS.system.payload.dto;
 
-import com.POS.system.Model.Category;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -8,6 +9,8 @@ import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
+@JsonPropertyOrder({"id","name","description","sku","mrp",
+        "sellingPrice","brand","image","categoryDto","categoryId","storeId","createdAt","updatedAt"})
 public class ProductDto {
 
     private Long id;  // id is needed to convert product to productDto

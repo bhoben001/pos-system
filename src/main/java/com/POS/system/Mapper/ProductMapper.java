@@ -20,6 +20,7 @@ public class ProductMapper {
         productDto.setBrand(product.getBrand());
         productDto.setImage(product.getImage());
         productDto.setCategoryDto(CategoryMapper.toDto(product.getCategory()));
+        productDto.setCategoryId(product.getCategory().getId());
         productDto.setStoreId(product.getStore()!=null?product.getStore().getId():null);
         productDto.setCreatedAt(LocalDateTime.now());
         productDto.setUpdatedAt(LocalDateTime.now());

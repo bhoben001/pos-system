@@ -51,7 +51,7 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @DeleteMapping ("/id")
+    @DeleteMapping ("/{id}")
     public ResponseEntity<ApiResponse> deleteProduct(@PathVariable Long id,
                                                      @RequestHeader("Authorization") String token) throws Exception {
         User user=userService.getUserFromJwtToken(token);

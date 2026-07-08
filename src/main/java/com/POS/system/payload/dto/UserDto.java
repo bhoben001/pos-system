@@ -7,7 +7,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@JsonPropertyOrder({"id","fullName","email","phone","role","createdAt","updatedAt","lastLogin"})
+@JsonPropertyOrder({"id","fullName","email","phone","branchId","storeId","role","createdAt","updatedAt","lastLogin"})
 
 public class UserDto {
     private Long id;
@@ -16,6 +16,10 @@ public class UserDto {
     private String phone;
 
     private String password;
+
+    private Long branchId;
+    private Long storeId;
+
 
     private UserRole role;
     private LocalDateTime createdAt;

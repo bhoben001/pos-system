@@ -16,7 +16,7 @@ public class BranchController {
     private final BranchService branchService;
 
     @PostMapping
-    public ResponseEntity<BranchDto>  createBranch(BranchDto branchDto){
+    public ResponseEntity<BranchDto>  createBranch(@RequestBody BranchDto branchDto){
         BranchDto branch= branchService.createBranch(branchDto);
         return ResponseEntity.ok(branch);
     }

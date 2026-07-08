@@ -16,7 +16,23 @@ public class UserMapper {
         userDto.setLastLogin(savedUser.getLastLogin());
         userDto.setCreatedAt(savedUser.getCreatedAt());
         userDto.setUpdatedAt(savedUser.getUpdatedAt());
+        userDto.setBranchId((savedUser.getBranch()!=null)?savedUser.getBranch().getId():null);
+        userDto.setStoreId((savedUser.getStore()!=null)?savedUser.getStore().getId():null);
 
         return userDto;
+    }
+
+    public static User toEntity(UserDto dto) {
+        User user = new User();
+
+        user.setFullName(dto.getFullName());
+        user.setEmail(dto.getEmail());
+        user.setRole(dto.getRole());
+        user.setPhone(dto.getPhone());
+        user.setPassword(dto.getPassword());
+        user.setLastLogin(dto.getLastLogin());
+        user.setCreatedAt(dto.getCreatedAt());
+        user.setUpdatedAt(dto.getUpdatedAt());
+        return user;
     }
 }

@@ -16,7 +16,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-@JsonPropertyOrder({"id","fullName","email","phone","role","createdAt","updatedAt","lastLogin"})
+@JsonPropertyOrder({"id","fullName","email","phone","role",
+        "createdAt","updatedAt","lastLogin"})
 public class User {
 
     @Id
@@ -32,6 +33,9 @@ public class User {
 
     @ManyToOne
     private Store store;
+
+    @ManyToOne
+    private Branch branch;
 
     @Column(nullable = false)
     private String phone;

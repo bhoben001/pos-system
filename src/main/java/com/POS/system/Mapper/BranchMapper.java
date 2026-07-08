@@ -23,6 +23,7 @@ public class BranchMapper {
                 .closeTime(branch.getCloseTime())
                 .createdAt(branch.getCreatedAt())
                 .updatedAt(branch.getUpdatedAt())
+                .store(branch.getStore() !=null? StoreMapper.toDto(branch.getStore()):null)
                 .storeId(branch.getStore()!=null?branch.getStore().getId():null)
                 .build();
     }

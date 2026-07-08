@@ -3,10 +3,12 @@ package com.POS.system.service.impl;
 import com.POS.system.Domain.UserRole;
 import com.POS.system.Mapper.CategoryMapper;
 import com.POS.system.Model.Category;
+import com.POS.system.Model.Product;
 import com.POS.system.Model.Store;
 import com.POS.system.Model.User;
 import com.POS.system.payload.dto.CategoryDto;
 import com.POS.system.repository.CategoryRepository;
+import com.POS.system.repository.ProductRepository;
 import com.POS.system.repository.StoreRepository;
 import com.POS.system.service.CategoryService;
 import com.POS.system.service.UserService;
@@ -23,6 +25,8 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final UserService userService;
     private final StoreRepository storeRepository;
+    private final ProductRepository productRepository;
+
 
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) throws Exception {
@@ -60,8 +64,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(Long id) throws Exception {
-
         Category category=categoryRepository.findById(id).orElseThrow(()->new Exception("category does not exist"));
+
         User user=userService.getCurrentUser();
         checkAuthority(user,category.getStore());
         categoryRepository.delete(category);
