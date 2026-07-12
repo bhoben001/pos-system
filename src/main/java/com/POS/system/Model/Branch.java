@@ -1,6 +1,7 @@
 package com.POS.system.Model;
 
 import com.POS.system.Domain.UserRole;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
@@ -16,6 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonPropertyOrder({"id","name","address","phone","email",
+        "workingDays","openTime","closeTime","createdAt","updatedAt", "store", "storeId","manager"})
 public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

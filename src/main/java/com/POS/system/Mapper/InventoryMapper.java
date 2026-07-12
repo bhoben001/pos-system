@@ -18,7 +18,9 @@ public class InventoryMapper {
                 .branchId(inventory.getBranch().getId())
                 .productId(inventory.getProduct().getId())
                 .product(ProductMapper.toDto(inventory.getProduct()))
+                .branch(BranchMapper.toDto(inventory.getBranch()))
                 .quantity(inventory.getQuantity())
+                .lastUpdate(inventory.getLastUpdate())
                 .build();
     }
 

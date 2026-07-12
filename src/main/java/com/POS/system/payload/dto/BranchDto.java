@@ -1,5 +1,6 @@
 package com.POS.system.payload.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +14,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonPropertyOrder({"id","name","address","phone","email",
+        "workingDays","openTime","closeTime","createdAt","updatedAt", "store", "storeId","manager"})
 public class BranchDto {
     private Long id;
 

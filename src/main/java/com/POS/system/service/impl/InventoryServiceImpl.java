@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +37,6 @@ public class InventoryServiceImpl implements InventoryService {
     public InventoryDto updateInventory(Long id,InventoryDto inventoryDto) throws Exception {
         Inventory inventory=inventoryRepository.findById(id).orElseThrow(()->new Exception("inventory not found"));
         if(inventoryDto.getQuantity()!=null)inventory.setQuantity(inventoryDto.getQuantity());
-
         Inventory updatedInventory=inventoryRepository.save(inventory);
     return InventoryMapper.toDto(updatedInventory);
     }
